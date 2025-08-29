@@ -325,7 +325,7 @@
             filteredRows.forEach((row, idx) => row['排名'] = idx + 1);
 
             // 顯示欄位：排名 + 原本前三欄
-            const showKeys = ['排名'].concat(Object.keys(filteredRows[0]).slice(0, 3));
+            const showKeys = ['排名', '玩家ID', '總積分'];
             let html = '<table class="table table-striped"><thead><tr>';
             showKeys.forEach(key => {
                 html += `<th>${key}</th>`;
@@ -344,3 +344,4 @@
     </script>
 </body>
 </html>
+
