@@ -205,8 +205,10 @@
         errorMsg.innerText = "目前沒有可顯示的排行榜資料。";
         return;
     }
-    // 只顯示這三個欄位
-    const showKeys = ["排名", "玩家ID", "總積分"];
+    // 取得「第一筆資料」的所有 key，取前三個
+    const firstRow = allData[level][0];
+    const showKeys = Object.keys(firstRow).slice(0, 3);
+
     let html = '<table class="table table-striped"><thead><tr>';
     showKeys.forEach(key => {
         html += `<th>${key}</th>`;
@@ -222,6 +224,7 @@
     html += '</tbody></table>';
     tableArea.innerHTML = html;
 }
+
 
 
 
