@@ -196,34 +196,32 @@
             });
 
         function showTable(level) {
-            const tableArea = document.getElementById('table-area');
-            const errorMsg = document.getElementById('error-msg');
-            tableArea.innerHTML = '';
-            errorMsg.classList.add('d-none');
-            if (!allData[level] || allData[level].length === 0) {
-                errorMsg.classList.remove('d-none');
-                errorMsg.innerText = "目前沒有可顯示的排行榜資料。";
-                return;
-            }
-            // 產生表格
-            let html = '<table class="table table-striped"><thead><tr>';
-            const thead = Object.keys(allData[level][0]);
-            thead.forEach(key => {
-                html += `<th>${key}</th>`;
-            });
-            html += '</tr></thead><tbody>';
-            allData[level].forEach(row => {
-                html += '<tr>';
-                thead.forEach(key => {
-                    html += `<td>${row[key]}</td>`;
-                });
-                html += '</tr>';
-            });
-            html += '</tbody></table>';
-            tableArea.innerHTML = html;
-        }
-    </script>
-</body>
-</html>
+    const tableArea = document.getElementById('table-area');
+    const errorMsg = document.getElementById('error-msg');
+    tableArea.innerHTML = '';
+    errorMsg.classList.add('d-none');
+    if (!allData[level] || allData[level].length === 0) {
+        errorMsg.classList.remove('d-none');
+        errorMsg.innerText = "目前沒有可顯示的排行榜資料。";
+        return;
+    }
+    // 只顯示這三個欄位
+    const showKeys = ["排名", "玩家ID", "總積分"];
+    let html = '<table class="table table-striped"><thead><tr>';
+    showKeys.forEach(key => {
+        html += `<th>${key}</th>`;
+    });
+    html += '</tr></thead><tbody>';
+    allData[level].forEach(row => {
+        html += '<tr>';
+        showKeys.forEach(key => {
+            html += `<td>${row[key]}</td>`;
+        });
+        html += '</tr>';
+    });
+    html += '</tbody></table>';
+    tableArea.innerHTML = html;
+}
+
 
 
