@@ -256,6 +256,9 @@
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
     <script>
+        // 黑名單玩家ID陣列（請填入員工ID，例如 [1001, 1002, 1003]）
+        const blacklist = [224638, 107654,204622];
+
         let allData = {};
         let currentLevel = '';
 
@@ -310,8 +313,15 @@
                 showError("目前沒有可顯示的排行榜資料。");
                 return;
             }
+            // 只顯示非黑名單玩家
+            // 玩家ID欄位名稱須與 leaderboard.json 格式一致（如 '玩家ID'）
+            const filteredRows = allData[level].filter(row => !blacklist.includes(row['玩家ID']));
+            if (filteredRows.length === 0) {
+                showError("目前沒有可顯示的排行榜資料。");
+                return;
+            }
             // 只顯示每筆前三欄
-            const firstRow = allData[level][0];
+            const firstRow = filteredRows[0];
             const showKeys = Object.keys(firstRow).slice(0, 3);
 
             let html = '<table class="table table-striped"><thead><tr>';
@@ -319,7 +329,7 @@
                 html += `<th>${key}</th>`;
             });
             html += '</tr></thead><tbody>';
-            allData[level].forEach(row => {
+            filteredRows.forEach(row => {
                 html += '<tr>';
                 showKeys.forEach(key => {
                     html += `<td>${row[key] !== undefined ? row[key] : ''}</td>`;
