@@ -112,14 +112,85 @@
             border-radius: 0.5rem;
             border: 1px solid #ccc;
         }
-        @media (max-width: 576px) {
+
+        /* ========== 響應式設計 for mobile/iPhone ========== */
+
+        /* 通用手機，小於 576px */
+        @media (max-width: 575.98px) {
             .prize-bubble {
-                width: 150px;
-                height: 150px;
+                width: 140px;
+                height: 140px;
                 padding: 10px;
             }
             .background-logo {
+                width: 120px;
+            }
+            .prize-bubble img {
+                max-width: 95%;
+            }
+            .prize-bubble h3 {
+                font-size: 1rem;
+            }
+            .section-title {
+                font-size: 1.1rem;
+            }
+        }
+        /* iPhone 15/15 Pro (393px) */
+        @media (max-width: 400px) and (min-width: 375px) {
+            .prize-bubble {
+                width: 120px;
+                height: 120px;
+            }
+            .prize-bubble img {
+                max-width: 90%;
+            }
+            .prize-bubble h3 {
+                font-size: 0.95rem;
+            }
+            .background-logo {
+                width: 100px;
+            }
+        }
+        /* iPhone 15 Plus/Pro Max (430px) */
+        @media (min-width: 401px) and (max-width: 450px) {
+            .prize-bubble {
+                width: 130px;
+                height: 130px;
+            }
+            .prize-bubble img {
+                max-width: 92%;
+            }
+            .prize-bubble h3 {
+                font-size: 1.05rem;
+            }
+            .background-logo {
+                width: 110px;
+            }
+        }
+        /* 平板（橫向） */
+        @media (min-width: 600px) and (max-width: 900px) {
+            .prize-bubble {
                 width: 180px;
+                height: 180px;
+            }
+            .prize-bubble img {
+                max-width: 85%;
+            }
+            .prize-bubble h3 {
+                font-size: 1.15rem;
+            }
+        }
+        /* 桌機大螢幕 */
+        @media (min-width: 1200px) {
+            .prize-bubble {
+                width: 260px;
+                height: 260px;
+            }
+            .prize-bubble img {
+                max-width: 75%;
+            }
+            .prize-bubble h3 {
+                font-size: 1.5rem;
             }
         }
     </style>
@@ -133,27 +204,27 @@
         </div>
 
         <!-- 積分豪禮(獎品展示) 區塊 -->
-            <h2 class="fw-bold section-title">積分豪禮</h2>
-            <div class="row">
-    <div class="col-lg-4 col-md-12">
-        <div class="prize-bubble">
-            <img src="ps5.png" alt="PS5" style="max-width:85%; height:auto;">
-            <h3>PlayStation 5</h3>
+        <h2 class="fw-bold section-title">積分豪禮</h2>
+        <div class="row">
+            <div class="col-lg-4 col-md-12">
+                <div class="prize-bubble">
+                    <img src="ps5.png" alt="PS5" style="max-width:85%; height:auto;">
+                    <h3>PlayStation 5</h3>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-12">
+                <div class="prize-bubble">
+                    <img src="switch.png" alt="Nintendo Switch 2" style="max-width:85%; height:auto;">
+                    <h3>Switch 2</h3>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-12">
+                <div class="prize-bubble">
+                    <img src="iphone.png" alt="iPhone 17" style="max-width:85px; height:auto;">
+                    <h3>iPhone 17</h3>
+                </div>
+            </div>
         </div>
-    </div>
-    <div class="col-lg-4 col-md-12">
-        <div class="prize-bubble">
-            <img src="switch.png" alt="Nintendo Switch 2" style="max-width:85%; height:auto;">
-            <h3>Switch 2</h3>
-        </div>
-    </div>
-    <div class="col-lg-4 col-md-12">
-        <div class="prize-bubble">
-            <img src="iphone.png" alt="iPhone 17" style="max-width:85px; height:auto;">
-            <h3>iPhone 17</h3>
-        </div>
-    </div>
-</div>
             
         </section>
 
@@ -341,7 +412,3 @@
     </script>
 </body>
 </html>
-
-
-
-
