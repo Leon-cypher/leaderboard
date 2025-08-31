@@ -13,76 +13,16 @@
             background-color: #f0f2f5;
             font-family: 'Noto Sans TC', 'Segoe UI', 'Roboto', sans-serif;
         }
-        .header-section {
-            background: linear-gradient(45deg, #CFA061, #CFA061);
-            color: white;
-            padding: 5rem 0;
+        .poster-section {
+            text-align: center;
             margin-bottom: 2rem;
-            text-align: center;
         }
-        .section-title {
-            position: relative;
-            display: inline-block;
-            margin-bottom: 2rem !important;
-        }
-        .section-title::before,
-        .section-title::after {
-            font-family: 'Times New Roman', serif;
-            font-size: 1.5rem;
-            color: #007bff;
-            margin: 0 1rem;
-            position: relative;
-            top: -2px;
-        }
-        .section-title::before { content: '♠'; }
-        .section-title::after { content: '♥'; }
-        .prize-section {
-            text-align: center;
-            padding: 2rem 0;
-            position: relative;
-            overflow: hidden;
-        }
-        .background-logo {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 320px;
+        .poster-section img {
+            max-width: 700px;
+            width: 100%;
             height: auto;
-            opacity: 0.2;
-            z-index: 1;
-        }
-        .prize-section .row {
-            position: relative;
-            z-index: 2;
-        }
-        .prize-bubble {
-            background-color: #ffffff;
-            border-radius: 50%;
-            width: 250px; height: 250px;
-            padding: 20px;
-            margin: 1rem auto;
-            box-shadow: 0 8px 16px rgba(0,0,0,0.15);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-        .prize-bubble:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 12px 24px rgba(0,0,0,0.2);
-        }
-        .prize-bubble img {
-            max-width: 80%;
-            height: auto;
-            margin-bottom: 15px;
-        }
-        .prize-bubble h3 {
-            font-size: 1.3rem;
-            font-weight: 700;
-            color: #333;
-            margin: 0;
+            border-radius: 1.2rem;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
         }
         .footer {
             text-align: center;
@@ -112,85 +52,30 @@
             border-radius: 0.5rem;
             border: 1px solid #ccc;
         }
-
-        /* ========== 響應式設計 for mobile/iPhone ========== */
-
-        /* 通用手機，小於 576px */
-        @media (max-width: 575.98px) {
-            .prize-bubble {
-                width: 140px;
-                height: 140px;
-                padding: 10px;
+        /* ===== 響應式設計 ===== */
+        @media (max-width: 768px) {
+            .poster-section img {
+                max-width: 100%;
+                border-radius: 0.8rem;
             }
-            .background-logo {
-                width: 120px;
-            }
-            .prize-bubble img {
-                max-width: 95%;
-            }
-            .prize-bubble h3 {
-                font-size: 1rem;
-            }
-            .section-title {
-                font-size: 1.1rem;
+            .table {
+                font-size: 0.98rem;
             }
         }
-        /* iPhone 15/15 Pro (393px) */
-        @media (max-width: 400px) and (min-width: 375px) {
-            .prize-bubble {
-                width: 120px;
-                height: 120px;
+        @media (max-width: 480px) {
+            .poster-section {
+                margin-bottom: 1.2rem;
             }
-            .prize-bubble img {
-                max-width: 90%;
+            .poster-section img {
+                border-radius: 0.5rem;
             }
-            .prize-bubble h3 {
-                font-size: 0.95rem;
+            .table th, .table td {
+                font-size: 0.92rem;
+                padding: 0.35rem 0.3rem;
             }
-            .background-logo {
-                width: 100px;
-            }
-        }
-        /* iPhone 15 Plus/Pro Max (430px) */
-        @media (min-width: 401px) and (max-width: 450px) {
-            .prize-bubble {
-                width: 130px;
-                height: 130px;
-            }
-            .prize-bubble img {
-                max-width: 92%;
-            }
-            .prize-bubble h3 {
-                font-size: 1.05rem;
-            }
-            .background-logo {
-                width: 110px;
-            }
-        }
-        /* 平板（橫向） */
-        @media (min-width: 600px) and (max-width: 900px) {
-            .prize-bubble {
-                width: 180px;
-                height: 180px;
-            }
-            .prize-bubble img {
-                max-width: 85%;
-            }
-            .prize-bubble h3 {
-                font-size: 1.15rem;
-            }
-        }
-        /* 桌機大螢幕 */
-        @media (min-width: 1200px) {
-            .prize-bubble {
-                width: 260px;
-                height: 260px;
-            }
-            .prize-bubble img {
-                max-width: 75%;
-            }
-            .prize-bubble h3 {
-                font-size: 1.5rem;
+            .level-select-container {
+                text-align: left;
+                margin-bottom: 0.5rem;
             }
         }
     </style>
@@ -202,32 +87,11 @@
             <h1 style="color: #0056b3;"><strong>LeaderBoard</strong></h1>
             <p class="lead text-muted">樂玩逢甲店 - 積分排行榜 9/1~9/30</p>
         </div>
-
-        <!-- 積分豪禮(獎品展示) 區塊 -->
-        <h2 class="fw-bold section-title">積分豪禮</h2>
-        <div class="row">
-            <div class="col-lg-4 col-md-12">
-                <div class="prize-bubble">
-                    <img src="ps5.png" alt="PS5" style="max-width:85%; height:auto;">
-                    <h3>PlayStation 5</h3>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-12">
-                <div class="prize-bubble">
-                    <img src="switch.png" alt="Nintendo Switch 2" style="max-width:85%; height:auto;">
-                    <h3>Switch 2</h3>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-12">
-                <div class="prize-bubble">
-                    <img src="iphone.png" alt="iPhone 17" style="max-width:85px; height:auto;">
-                    <h3>iPhone 17</h3>
-                </div>
-            </div>
+        <!-- 活動海報區塊（取代積分豪禮、獎品泡泡） -->
+        <div class="poster-section text-center mb-4">
+            <!-- 請將你的活動海報圖檔命名為 poster.jpg 或更換下方 src -->
+            <img src="poster.jpg" alt="活動海報" class="img-fluid">
         </div>
-            
-        </section>
-
         <!-- 分頁標籤區塊（Tabs） -->
         <ul class="nav nav-tabs mb-4" id="leaderboardTab" role="tablist">
           <li class="nav-item" role="presentation">
